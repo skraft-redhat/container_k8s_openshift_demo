@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkus-demo-deployment
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: hello-world-demo
+  template:
+    metadata:
+      labels:
+        app: hello-world-demo
+    spec:
+      containers:
+      - name: quarkus-demo
+        image: quay.io/stephan_kraft/hello-world-demo
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080

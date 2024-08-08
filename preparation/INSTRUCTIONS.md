@@ -1,4 +1,4 @@
-# H1 Instructions for the demo preparation
+# Instructions for the demo preparation
 
 1. Clone the git repo
 
@@ -23,3 +23,11 @@ In a browser (or with curl) try to access http://localhost:8080/hello
 
 3. Push the container image:  
 `podman push quay.io/stephan_kraft/hello-world-demo`
+
+4. Make the container image public:
+
+In the Quay Web Console, go to the Repository -> Settings -> Repository Visibility.
+Press "Make Public".
+
+4. Connect to the OpenShift Cluster:  
+`oc login -u [USER] -p [PASSWORD] https://api.[Cluster Domain]`

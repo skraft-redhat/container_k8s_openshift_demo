@@ -1,4 +1,4 @@
-# H1 Showcase the basic workflows of pulling and running containers
+# Showcase the basic workflows of pulling and running containers
 
 1. Pull the container image:  
 `podman pull quay.io/stephan_kraft/hello-world-demo`
