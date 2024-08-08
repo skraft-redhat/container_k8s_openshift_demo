@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: quarkus-demo-deployment
+  name: hello-world-from-image
 spec:
   replicas: 1
   selector:
