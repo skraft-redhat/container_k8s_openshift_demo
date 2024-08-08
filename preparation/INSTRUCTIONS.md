@@ -1,0 +1,25 @@
+# H1 Instructions for the demo preparation
+
+1. Clone the git repo
+
+   `git clone https://github.com/skraft-redhat/container_k8s_openshift_demo`
+
+2. Build the container image
+
+
+- Go to the source directory:  
+`cd container_k8s_openshift_demo/source`
+
+- Package the source code:  
+`./mvnw package -Dnative`
+
+- Build the container image:  
+`podman build -f src/main/docker/Dockerfile.native -t quay.io/stephan_kraft/hello-world-demo .`
+
+- (optional) Run the image:  
+`podman run -i --rm -p 8080:8080 quay.io/stephan_kraft/hello-world-demo`
+
+In a browser (or with curl) try to access http://localhost:8080/hello
+
+3. Push the container image:  
+`podman push quay.io/stephan_kraft/hello-world-demo`
