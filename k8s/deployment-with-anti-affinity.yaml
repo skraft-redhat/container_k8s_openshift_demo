@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-world-from-image
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-world-demo
+  template:
+    metadata:
+      labels:
+        app: hello-world-demo
+    spec:
+      containers:
+      - name: quarkus-demo
+        image: quay.io/stephan_kraft/hello-world-demo
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - hello-world-demo
+            topologyKey: "kubernetes.io/hostname"
