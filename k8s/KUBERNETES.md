@@ -12,6 +12,8 @@ Kubernetes primarily works with so-called *Manifests*. These are config-files wh
 
 Let's just deploy the image first.
 
+- Have a look at a simple yaml
+
 - Deyploying the image: `kubectl apply -f deployment-1-replica.yaml`
 
 - Let's see whether instances have already been started: 
@@ -46,20 +48,17 @@ We have a Kubernetes cluster with 3 worker nodes. How does Kubernetes decide whe
 - Requests and Limits
 
 
+Great, that has worked. But there are still some challenges that we have not adressed:
+
+- How can we expose these pods to the outside world?
+
+- How are actually the images built?
+
+- And then, we actually need a a lot of other services to complement the Kubernetes cluster, e.g. image registry, monitoring, an overlay network, etc
 
 
+With OpenShift all of these issues are solved in an *opinionated* way. Still, with OpenShift everything is open source. 
 
-Great, that has worked. But how can this be accessed?
-
-- We need to additionally create a *Service* object which acts as a Load Balancer. (In OpenShift, this will be even more easy - which we'll show later!):  
-`kubectl expose deployment myapp --port=8080 --type=LoadBalancer`
-
-This will give us a (cluster)-internal IP:   
-`kubectl get services`
-
-But as you can see, we don't get an external-IP!
-
-With OpenShift that gets a lot easier, as we can also easily expose it externally and we will get to know the beautiful GUI.
 
 Source: [Kubernetes Tutorial @ Red Hat Developer Page](https://redhat-scholars.github.io/kubernetes-tutorial/kubernetes-tutorial/kubectl.html)
 
