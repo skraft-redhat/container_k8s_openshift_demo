@@ -33,3 +33,7 @@ Press "Make Public".
 
 5. Connect to the OpenShift Cluster:  
 `oc login -u [USER] -p [PASSWORD] https://api.[Cluster Domain]`
+
+6. Open VS Codium 
+
+7. Open Quay.io

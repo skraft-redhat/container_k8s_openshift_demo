@@ -1,12 +1,15 @@
 # Showcase the basic workflows of pulling and running containers
 
-1. Pull the container image:  
+1. Show container image registry:
+https://quay.io/repository/stephan_kraft/hello-world-demo
+
+2. Pull the container image:  
 `podman pull quay.io/stephan_kraft/hello-world-demo`
 
-2. Run the image:  
+3. Run the image:  
 `podman run -i --rm -p 8080:8080 quay.io/stephan_kraft/hello-world-demo`
 
-3. Access the endpoint: 
+4. Access the endpoint: 
 In a browser (or with curl) try to access http://localhost:8080/hello
 
 Discussion:
