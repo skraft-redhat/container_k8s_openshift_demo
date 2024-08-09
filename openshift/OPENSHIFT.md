@@ -66,3 +66,21 @@ The only thing, we need to do is to connect the GitHub repository with the OpenS
 3. Now, you can change the source code and push it to the git repo.
 
 4. You should see that a new build has been automatically created (e.g. look in the topology view or show the new build object). After the build has finished a new version is deployed.
+
+
+One last thing that we want to show is one of the sweet spots of Kubernetes / OpenShift, which is smooth upgrading of applications. This actually allows to have multipe upgrades during business hours and generally reducing the risk.
+
+The concepts for this are:
+- Rolling Upgrades: allowing for zero-down time
+- Canary deployments: only upgrading a small portion (e.g. 10%) to test a new version 
+- Blue/Green Deployments: having multiple versions of an application running simultaneously. 
+
+The easiest to show are rolling upgrades.
+
+- Scale up the number of replicas to any number above 1.
+
+- Explain the different parameter to configure the rolling upgrade (Max unavaible, Max surge)
+
+- Start another upgrade as described above
+
+- Watch how K8s performs the upgrade 
