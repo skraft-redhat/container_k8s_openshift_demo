@@ -33,6 +33,16 @@ Second, by killing any of the instances ("pods") and see what happens.
 - Now, show again the state of the deployment and all instances. Obviously, the remediation has happened automatically and very fast. The only thing how you can notice is that one of the pods has a lower age.
 
 
+Let's explore some advanced features from K8s:
+- rule-based placement:
+We have a Kubernetes cluster with 3 worker nodes. How does Kubernetes decide where to put the instances? Well, that's based on several rules.
+`kubectl get pods --output=wide`
+
+- Anti-affinity rules:
+`kubectl apply -f deployment-with-anti-affinity.yaml`
+
+
+
 
 
 Great, that has worked. But how can this be accessed?
