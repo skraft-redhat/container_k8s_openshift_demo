@@ -16,4 +16,53 @@ All these steps usually require tooling which needs to be maintained. With OpenS
 
 Let's explore this with Go.
 
+In our git repository, we have a very simple Go-application in the folder */hello-world-golang*.
 
+If we want to have this deployed as a container, we would need to follow the above steps. Namely, first having a go compiler, then writing a Dockerfile, then building the container image, then writing Kubernetes manifests and then applying them to the cluster.
+
+In OpenShift, this is much, much easier.
+
+Just, in the "Developer" perspective, click on "+Add" and choose the option "Import from Git". Then provide the Git Repository and the rest will be chosen and created automatically.
+
+![Screenshot "Import from Git"](images/ImportFromGit.png)
+
+As you can see, OpenShift is smart enough to automatically choose the right Builder Image. Which is in our case Go 1.18 based on the Universal Base Image 7 (= free distribution of Red Hat Enterprise Linux 7).
+
+![Screenshot "Builder Image Detected"](images/BuilderImageDetected.png)
+
+Now, if you start this (by presssing "Create"), several things will happen:
+
+- The Builder Image will be instantiated and will take care of building the application and the container image
+- All the Manifests will be created (deployment, service, route)
+- Once the build is finished, it will be automatically deployed
+
+Great!!!
+
+But the support for building container images goes beyond the one-time creation. If we are updating the source code, OpenShift provides a fully automated solution to run through the whole process again.
+
+The only thing, we need to do is to connect the GitHub repository with the OpenShift BuildConfig. This is accomplished, by adding a WebHook to Git which is triggered by each commit. The WebHook will then iniate the OpenShift Build.
+
+1. Get the URL of the "Start Trigger"
+
+- In the "Admin" perspective, go to "Builds -> BuildConfigs"
+
+- Select the BuildConfig object that was automatically created for the Go application.
+
+- Scroll down and copy the **Generic WebHook** URL with Secret
+
+
+2. Create the Webhook
+
+- In the GitHub repository, go to Settings -> Webhooks
+
+- Fill out the form
+
+    Payload URL: The copied URL from OpenShift
+
+    Content Type: application/json
+
+    SSL Verification: Disable
+
+3. Now, you can change the source code and push it to the git repo.
+
+4. You should see that a new build has been automatically created (e.g. look in the topology view or show the new build object). After the build has finished a new version is deployed.

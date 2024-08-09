@@ -41,6 +41,10 @@ We have a Kubernetes cluster with 3 worker nodes. How does Kubernetes decide whe
 - Anti-affinity rules:
 `kubectl apply -f deployment-with-anti-affinity.yaml`
 
+- Readiness checks
+
+- Requests and Limits
+
 
 
 
