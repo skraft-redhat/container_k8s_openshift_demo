@@ -66,6 +66,7 @@ Now, if you start this (by presssing "Create"), several things will happen:
 
 
 > **_ATTENTION:_** In v4.16 of OpenShift there is a bug, that removes the *Automatic deploying of a new version* if editing the Deployment in the Web Console. See: https://issues.redhat.com/browse/OCPBUGS-36339
+
 Great!!! But what about upgrades?
 
 ## Automatic deployment from commit
