@@ -49,7 +49,14 @@ In the "Developer" perspective, click on "+Add" and choose the option "Import fr
 
 As you can see, OpenShift is smart enough to automatically choose the right Builder Image. Which is in our case Go 1.18 based on the Universal Base Image 7 (= free distribution of Red Hat Enterprise Linux 7).
 
+Example:
+- Git-Repo URL: https://github.com/skraft-redhat/container_k8s_openshift_demo
+
+- Context Dir: hello-world-golang
+
 ![Screenshot "Builder Image Detected"](images/BuilderImageDetected.png)
+
+(Remark: The unauthenticated access to the GitHub API may be limited. If this is the case you need to create a secret to access it authenticated. This can be done in the "+Add" form by expanding the "Advanced Git options" and selecting/creating a "Source Secret")
 
 Now, if you start this (by presssing "Create"), several things will happen:
 
