@@ -37,3 +37,8 @@ Press "Make Public".
 6. Open VS Codium 
 
 7. Open Quay.io
+
+8. (optional) cleanup local container images:
+- `podman rmi --all --force`
+
+- `podman images`

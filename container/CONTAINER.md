@@ -29,6 +29,14 @@ Show the differences outside and inside the container with commands like:
 - `cat /etc-os-release`
 - Show that most of the sys-admin utilities don't work in the container, e.g. `ps`, `netstat`, etc. (Security!)
 
+7. What happens if the container is killed?
+
+- Let's find out the process id: `ps -a`
+
+- Kill the process `kill -9 [pid]`
+
+(Remark: It might be that the process still polutes the port. In that case, you can find out with `netstat -anop | grep 8080`)
+
 Discussion:
 - If container dies, there is no self-healing
 - How to scale? (Starting another container would have a conflicting port)

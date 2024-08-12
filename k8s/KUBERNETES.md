@@ -5,7 +5,8 @@ In our case we are using OpenShift, but all what can be done with Kubernetes is 
 
 2. Set the right context aka *Namespace* or *Project*:  
 - Create the environment: `kubectl create namespace [Project Name]`
-- Check that we are in the right environment: `kubectl config set-context --current --namespace [Project Name]`
+- Change the current-context: `kubectl config set-context --current --namespace [Project Name]`
+- Check that we are in the right environment: `kubectl config current-context`
 
 3. Create resources declaratively:
 Kubernetes primarily works with so-called *Manifests*. These are config-files which specify the **desired** state. It's then the obligation of Kubernetes to continously compare the *desired* with the *real* status and initiate remediation. 
@@ -22,10 +23,7 @@ Let's just deploy the image first.
 
 Now, let's show the beauty of *declarative configuration*:
 
-First, by changing the declaration and let Kubernetes figure out how to reconcile.
-`kubectl apply -f deployment-1-replica.yaml`
-
-Second, by just changing the configuration, e.g. to have more replicas.
+First, by just changing the configuration, e.g. to have more replicas.
 `kubectl apply -f deployment-8-replica.yaml`
 
 
