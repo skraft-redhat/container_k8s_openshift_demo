@@ -1,16 +1,33 @@
 # Showcase the basic workflows of pulling and running containers
 
-1. Show container image registry:
+1. Search in container image registries, e.g.:
+`podman search hello-world-demo`
+
+(Remark: Podman searches in all registries listed in `/etc/containers/registries.conf`)
+
+2. Show container image registry:
 https://quay.io/repository/stephan_kraft/hello-world-demo
 
-2. Pull the container image:  
+3. Pull the container image:  
 `podman pull quay.io/stephan_kraft/hello-world-demo`
 
-3. Run the image:  
+4. Run the image:  
 `podman run -i --rm -p 8080:8080 quay.io/stephan_kraft/hello-world-demo`
 
-4. Access the endpoint: 
+5. Access the endpoint: 
 In a browser (or with curl) try to access http://localhost:8080/hello
+
+6. Container basics:
+As discussed, container are also virtualization, but on a different level than Virtual Machines (VMs). They are running as processes on a (Linux) Kernel and make use of basic Kerne functionality, like:
+- CGroups: in order to limit resource consumption
+- Namespaces: in order to limit what a Container can see (e.g. Network, Process,...)
+- chroot: in order to limit the view on the file system
+
+You can just exec into a container, e.g. with `podman exec -it [Container Name] [Command, eg. bash]`
+
+Show the differences outside and inside the container with commands like:
+- `cat /etc-os-release`
+- Show that most of the sys-admin utilities don't work in the container, e.g. `ps`, `netstat`, etc. (Security!)
 
 Discussion:
 - If container dies, there is no self-healing
