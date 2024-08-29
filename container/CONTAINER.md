@@ -34,9 +34,12 @@ Show the differences outside and inside the container with commands like:
 
 7. What happens if the container is killed?
 
-- Let's find out the process id: `ps -a`
+- Find out the Process ID: The pid is not so easy to find as podman starts container - due to security reasons - with a different user id. What you can do:
+`podman container inspect -f "{{.PidFile}}"podman container inspect -f "{{.PidFile}} [Container ID]` to find the file where podman writes the pid to.
 
 - Kill the process `kill -9 [pid]`
+
+Alternatively, you can just delete the contaimer with `podman rm -f [container id]`
 
 (Remark: It might be that the process still polutes the port. In that case, you can find out with `netstat -anop | grep 8080`)
 
