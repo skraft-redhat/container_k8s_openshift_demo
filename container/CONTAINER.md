@@ -35,7 +35,7 @@ Show the differences outside and inside the container with commands like:
 7. What happens if the container is killed?
 
 - Find out the Process ID: The pid is not so easy to find as podman starts container - due to security reasons - with a different user id. What you can do:
-`podman container inspect -f "{{.PidFile}}"podman container inspect -f "{{.PidFile}} [Container ID]` to find the file where podman writes the pid to.
+`podman container inspect -f "{{.PidFile}}" [Container ID]` to find the file where podman writes the pid to.
 
 - Kill the process `kill -9 [pid]`
 
