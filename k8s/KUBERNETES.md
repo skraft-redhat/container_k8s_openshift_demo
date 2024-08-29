@@ -11,6 +11,8 @@ In our case we are using OpenShift, but all what can be done with Kubernetes is 
 3. Create resources declaratively:
 Kubernetes primarily works with so-called *Manifests*. These are config-files which specify the **desired** state. It's then the obligation of Kubernetes to continously compare the *desired* with the *real* status and initiate remediation. 
 
+> **_NOTE:_** This is a key differentiator to Virtual Machines where declarations are only valid for the creation, but there is no continous reconciliation!!
+
 Let's just deploy the image first.
 
 - Have a look at a simple yaml
