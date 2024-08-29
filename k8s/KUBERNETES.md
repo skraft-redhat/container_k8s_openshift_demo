@@ -21,6 +21,8 @@ Let's just deploy the image first.
 
 - Deyploying the image: `kubectl apply -f deployment-1-replica.yaml`
 
+> **_NOTE:_** Alternatively, you could also use the CLI-command to generate a yaml-file, e.g. `kubectl create deployment hello-world-demo --image=quay.io/stephan-kraft/hello-world-demo --replicas=3`
+
 - Let's see whether instances have already been started: 
 
 `kubectl get deploy` and `kubectl get pods`
