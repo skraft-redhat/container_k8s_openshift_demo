@@ -11,11 +11,14 @@ https://quay.io/repository/stephan_kraft/hello-world-demo
 3. Pull the container image:  
 `podman pull quay.io/stephan_kraft/hello-world-demo`
 
+3a. (optional) Show the images and their size:
+`podman images ls`
+
 4. Run the image:  
 `podman run -i --rm -p 8080:8080 quay.io/stephan_kraft/hello-world-demo`
 
 5. Access the endpoint: 
-In a browser (or with curl) try to access http://localhost:8080/hello
+In a browser (or with curl) try to access http://localhost:8080
 
 6. Container basics:
 As discussed, container are also virtualization, but on a different level than Virtual Machines (VMs). They are running as processes on a (Linux) Kernel and make use of basic Kerne functionality, like:
@@ -26,7 +29,7 @@ As discussed, container are also virtualization, but on a different level than V
 You can just exec into a container, e.g. with `podman exec -it [Container Name] [Command, eg. bash]`
 
 Show the differences outside and inside the container with commands like:
-- `cat /etc-os-release`
+- `cat /etc/os-release`
 - Show that most of the sys-admin utilities don't work in the container, e.g. `ps`, `netstat`, etc. (Security!)
 
 7. What happens if the container is killed?
