@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: hello-world-from-image
 spec:
-  replicas: 8
+  replicas: 3
   selector:
     matchLabels:
       app: hello-world-demo
