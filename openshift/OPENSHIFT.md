@@ -100,6 +100,11 @@ The only thing, we need to do is to connect the GitHub repository with the OpenS
 
 4. You should see that a new build has been automatically created (e.g. look in the topology view or show the new build object). After the build has finished a new version is deployed.
 
+Troubleshooting (if automatic upgrade does not work):
+- check whether you have commmitted your changes (The build uses the sources from the central git repo, not from your local machine) 
+- check whether a build was started
+- Check whether the build is really based on the latest commit (compare the commit digest from github with the build logs)
+- check whether the pods have been restarted: This is done by the image change trigger. You can verify that the trigger works by entering `oc set triggers deploy/hello-world-golang' => this shows all the active triggers
 
 One last thing that we want to show is one of the sweet spots of Kubernetes / OpenShift, which is smooth upgrading of applications. This actually allows to have multipe upgrades during business hours and generally reducing the risk.
 

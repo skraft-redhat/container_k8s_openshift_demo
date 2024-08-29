@@ -8,6 +8,8 @@ In our case we are using OpenShift, but all what can be done with Kubernetes is 
 - Change the current-context: `kubectl config set-context --current --namespace [Project Name]`
 - Check that we are in the right environment: `kubectl config current-context`
 
+> **_NOTE:_**  Please note that the context name is kept the same, although you are pointing to a different project. This might be somehow misleading!!
+
 3. Create resources declaratively:
 Kubernetes primarily works with so-called *Manifests*. These are config-files which specify the **desired** state. It's then the obligation of Kubernetes to continously compare the *desired* with the *real* status and initiate remediation. 
 
