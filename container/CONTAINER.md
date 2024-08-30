@@ -43,6 +43,9 @@ Alternatively, you can just delete the contaimer with `podman rm -f [container i
 
 (Remark: It might be that the process still polutes the port. In that case, you can find out with `netstat -anop | grep 8080`)
 
+8. Scaling the container:
+If you run the "podman run" command again, it fails. Why? Because you can't connect two processes to the same port.
+
 Discussion:
 - If container dies, there is no self-healing
 - How to scale? (Starting another container would have a conflicting port)

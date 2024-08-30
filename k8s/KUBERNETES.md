@@ -42,11 +42,29 @@ Second, by killing any of the instances ("pods") and see what happens.
 
 - Now, show again the state of the deployment and all instances. Obviously, the remediation has happened automatically and very fast. The only thing how you can notice is that one of the pods has a lower age.
 
+But, how does this actually work for external consumers. They would not like to access the pods directly per IP-adress. This is where Services come into play:
+- They have stable IPs
+- They "collect" their member pods automatically via label matching.
+
+For this, let's deploy a simple service:
+`kubectl apply -f service.yaml`
+
+If you describe the service, you can see that it gets automatically an IP-adress and manages several so-called end-points. This are all the pods that match the "selector" of the service.
+
+![Screenshot "Relationship between Pods, Services and Deployments"](images/Pods_Service_Deployment_vorher.png)
+
+Let's now see what happens if we kill a pod. 
+
+![Screenshot "Relationship between Pods, Services and Deployments"](images/Pods_Service_Deployment_nachher.png)
+
+That's pretty cool. K8s not only automatically creates a new pod, but also manages to exclude / include these pods in the service. Thus, consumers of the service would not even notice that the pod has been replaced. (Of course, this only applies to a stateless architecture!)
 
 Let's explore some advanced features from K8s:
 - rule-based placement:
 We have a Kubernetes cluster with 3 worker nodes. How does Kubernetes decide where to put the instances? Well, that's based on several rules.
 `kubectl get pods --output=wide`
+
+
 
 - Anti-affinity rules:
 `kubectl apply -f deployment-with-anti-affinity.yaml`
@@ -62,7 +80,7 @@ Great, that has worked. But there are still some challenges that we have not adr
 
 - How are actually the images built?
 
-- And then, we actually need a a lot of other services to complement the Kubernetes cluster, e.g. image registry, monitoring, an overlay network, etc
+- And then, we actually need a lot of other services to complement the Kubernetes cluster, e.g. image registry, monitoring, an overlay network, etc
 
 
 With OpenShift all of these issues are solved in an *opinionated* way. Still, with OpenShift everything is open source. 

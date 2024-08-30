@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world-from-image
+  name: hello-world-demo
 spec:
   replicas: 10
   selector:
