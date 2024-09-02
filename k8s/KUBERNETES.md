@@ -30,7 +30,7 @@ Let's just deploy the image first.
 Now, let's show the beauty of *declarative configuration*:
 
 First, by just changing the configuration, e.g. to have more replicas.
-`kubectl apply -f deployment-8-replica.yaml`
+`kubectl apply -f deployment-3-replica.yaml`
 
 
 Second, by killing any of the instances ("pods") and see what happens.
