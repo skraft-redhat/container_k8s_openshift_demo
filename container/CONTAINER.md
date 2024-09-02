@@ -1,5 +1,5 @@
 # Showcase the basic workflows of pulling and running containers
----
+
 > **_NOTE_**: A very nice tool to manage multiple terminals on one screen is *tmux*. This can be started on a bash terminal, the most basic commands are: 
 
 %b + %      => adds a vertical terminal pane  
@@ -8,7 +8,6 @@
 
 %b + Arrows => jump from one pane to another  
 
----
 
 1. Search in container image registries, e.g.:
 `podman search hello-world-demo`
