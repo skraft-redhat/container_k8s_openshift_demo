@@ -59,6 +59,12 @@ Let's now see what happens if we kill a pod.
 
 That's pretty cool. K8s not only automatically creates a new pod, but also manages to exclude / include these pods in the service. Thus, consumers of the service would not even notice that the pod has been replaced. (Of course, this only applies to a stateless architecture!)
 
+But, could we now access the pods? Let's try to do a curl: `curl [Service IP]:8080`. 
+
+No, that doesn't work. So, we need to do something additionally to get it externally exposed. That's where also OpenShift will offer a smarter solution.
+
+> **_NOTE:_** You could test it out, by running the command from within a pod, e.g. `kubectl exec [pod id] -- curl [service ip]:8080`
+
 Let's explore some advanced features from K8s:
 - rule-based placement:
 We have a Kubernetes cluster with 3 worker nodes. How does Kubernetes decide where to put the instances? Well, that's based on several rules.

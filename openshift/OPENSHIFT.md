@@ -5,7 +5,7 @@
 
 2. Comfortably, we can build on the deploments that we have made before with basic Kubernetes. Let's have a look at them.
 
-3. One of the issues with plain K8s is that exposing workloads is not that straight-forward. Let's see how this would have worked with OpenShift.
+3. One of the issues with plain K8s is that exposing workloads is not that straight-forward. We had to create a Deployment, a Service. And after all, we can't still access the service outside the cluster. Let's see how this would have worked with OpenShift.
 
 - Click on "+Add" in the Developer perspective and choose "Container Images"
 
